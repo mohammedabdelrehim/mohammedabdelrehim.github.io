@@ -3,8 +3,10 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  color: #fff; /* White text for contrast */
-  background-color: #121212; /* Dark background */
+  color: #fff;
+  /* White text for contrast */
+  background-color: #121212;
+  /* Dark background */
 }
 
 .container {
@@ -15,8 +17,10 @@ body {
 
 /* Navigation Bar */
 nav {
-  background-color: #000; /* Black navigation bar */
-  color: #1db954; /* Spotify green */
+  background-color: #000;
+  /* Black navigation bar */
+  color: #1db954;
+  /* Spotify green */
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -27,7 +31,8 @@ nav {
 nav .logo {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 nav .nav-links {
@@ -37,72 +42,78 @@ nav .nav-links {
 }
 
 nav .nav-links a {
-  color: #fff; /* White text for links */
+  color: #fff;
+  /* White text for links */
   text-decoration: none;
   font-weight: 400;
   transition: color 0.3s ease;
 }
 
 nav .nav-links a:hover {
-  color: #1db954; /* Spotify green on hover */
+  color: #1db954;
+  /* Spotify green on hover */
 }
 
 /* Home Section */
 .home-section {
-position: relative;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-overflow: hidden;
-/* Removed gradient background */
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  /* Removed gradient background */
 }
+
 /* Increase heading size in the home section */
 .home-section h1 {
-  font-size: 3rem; /* Adjust this value as needed */
+  font-size: 3rem;
+  /* Adjust this value as needed */
   margin-bottom: 1rem;
   animation: fadeInUp 1.5s ease-in-out;
 }
 
 /* Increase paragraph text size in the home section */
 .home-section p {
-  font-size: 1.1rem; /* Adjust this value as needed */
+  font-size: 1.1rem;
+  /* Adjust this value as needed */
   margin-bottom: 2rem;
   animation: fadeInUp 1.5s ease-in-out;
 }
 
 /* Increase the icon size in the social links */
 .social-links a {
-  font-size: 2rem; /* Adjust this value as needed */
+  font-size: 2rem;
+  /* Adjust this value as needed */
   margin: 0 0.75rem;
   animation: zoomIn 1.5s ease-in-out;
 }
 
 .background-slideshow {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
-background-size: cover;
-background-position: center;
-transition: opacity 3s ease-in-out;
-opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 3s ease-in-out;
+  opacity: 1;
 }
 
 /* Overlay for faded green tint */
 .background-slideshow::after {
-content: "";
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-/* Green tint with about 30% opacity */
-background: rgba(30, 30, 30, 0.753);
-pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Green tint with about 30% opacity */
+  background: rgba(30, 30, 30, 0.753);
+  pointer-events: none;
 }
 
 
@@ -115,47 +126,39 @@ pointer-events: none;
 }
 
 social-links a:hover {
-  color: #1db954; /* Spotify green on hover */
+  color: #1db954;
+  /* Spotify green on hover */
 }
 
 /* About Section */
 .about-section {
   padding: 4rem 0;
-  background-color: #000000; /* Dark background */
+  background-color: #000000;
+  /* Dark background */
 }
 
 .about-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
   animation: fadeIn 1s ease-in-out;
 }
-
-/* .about-section .container {
-  background-color: #000; /* Black background */
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: auto; /* Optional: limit width if necessary */
-  max-height: auto; /* Optional: limit height if necessary */
-
-  margin: 0 auto;
-} */
 
 .about-section .container:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
 }
 
-black-box {
+.black-box {
   background-color: #000000;
   padding: 1.5rem;
   border-radius: 8px;
   margin: 0 auto 2rem;
   box-shadow: 0 4px 6px rgb(0, 0, 0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 800px; /* Optional: limit width if you want a narrower box */
+  max-width: 800px;
+  /* Optional: limit width if you want a narrower box */
 }
 
 /* .black-box:hover {
@@ -174,13 +177,15 @@ black-box {
 /* Projects Section */
 .projects-section {
   padding: 4rem 0;
-  background-color: #000; /* Black background */
+  background-color: #000;
+  /* Black background */
 }
 
 .projects-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 /* Projects Section Grid - 3 columns per row */
@@ -221,20 +226,23 @@ black-box {
 
 .project-card h3 {
   margin-bottom: 1rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 /* Experience Section */
 .experience-section {
   padding: 4rem 0;
-  background-color: #121212; /* Dark background */
-  
+  background-color: #121212;
+  /* Dark background */
+
 }
 
 .experience-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 .experience-list {
@@ -248,20 +256,23 @@ black-box {
 
 .experience-item h3 {
   margin-bottom: 0.5rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 
 }
 
 /* Publications Section */
 .publications-section {
   padding: 4rem 0;
-  background-color: #000; /* Black background */
+  background-color: #000;
+  /* Black background */
 }
 
 .publications-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 .publications-section ul {
@@ -278,13 +289,15 @@ black-box {
 /* Contact Section */
 .contact-section {
   padding: 4rem 0;
-  background-color: #121212; /* Dark background */
+  background-color: #121212;
+  /* Dark background */
 }
 
 .contact-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 .contact-info {
@@ -292,19 +305,23 @@ black-box {
 }
 
 .contact-info a {
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 contact-info a:hover {
-  color: #fff; /* White on hover */
+  color: #fff;
+  /* White on hover */
 }
 
 /* Footer */
 footer {
-  background-color: #000; /* Black background */
-  color: #1db954; /* Spotify green */
+  background-color: #000;
+  /* Black background */
+  color: #1db954;
+  /* Spotify green */
   text-align: center;
   padding: 1rem 0;
   animation: fadeIn 1s ease-in-out;
@@ -312,18 +329,25 @@ footer {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .animated-text {
   animation: fadeIn 1.5s ease-in-out;
-} 
+}
+
 /* Timeline Styles */
 /* Timeline Container */
 .timeline {
   position: relative;
-  max-width: 1300px; /* or your desired max width */
+  max-width: 1300px;
+  /* or your desired max width */
   margin: 0 auto;
   padding: 40px 0;
 }
@@ -336,50 +360,208 @@ footer {
   bottom: 0;
   left: 40%;
   width: 4px;
-  background-color: #1db954; /* Spotify green or your color */
-  margin-left: -2px; /* Center the line */
+  background-color: #1db954;
+  /* Spotify green or your color */
+  margin-left: -2px;
+  /* Center the line */
+}
+
+/* Flip Card Base Styles */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  /* Essential for 3D effect */
+  width: 100%;
+  height: 420px;
+  /* Increased height for better visibility */
+  position: relative;
+  z-index: 10;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Smooth springy effect */
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Common Styles for Front and Back */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Glassmorphism */
+  /* Glassmorphism */
+  background: rgba(18, 18, 18, 0.4);
+  /* More transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Front Face Specifics */
+.flip-card-front {
+  transform: rotateY(0deg);
+  /* Explicitly set */
+}
+
+.flip-card-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .flip-card-front img {
+  transform: scale(1.1);
+  /* Subtle zoom on hover before flip fully takes over */
+}
+
+
+/* Back Face Specifics */
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: rgba(18, 18, 18, 0.85);
+  /* Dark but transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  align-items: flex-start;
+  /* Left align text on back */
+  justify-content: flex-start;
+  /* Ensure content starts at top */
+  overflow-y: auto;
+  /* Scroll if content is too long */
+  z-index: 20;
+  text-align: left;
+  padding-top: 1.5rem;
+  /* Ensure header isn't cut off */
+}
+
+.flip-card-back h3 {
+  color: #1db954;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  /* Align to top */
+  align-self: center;
+  /* keep title centered */
+  font-size: 1.2rem;
+  border-bottom: 2px solid #1db954;
+  padding-bottom: 0.5rem;
+}
+
+/* Custom Scrollbar for Back */
+.flip-card-back::-webkit-scrollbar {
+  width: 6px;
+}
+
+.flip-card-back::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.flip-card-back::-webkit-scrollbar-thumb {
+  background: #1db954;
+  border-radius: 3px;
 }
 
 /* Timeline Items (left & right) */
 .timeline-item {
   position: relative;
-  width: 30%;
-  padding: 10px 10px; /* Controls spacing around each card */
+  width: 45%;
+  /* Increased width for bigger tiles */
+  padding: 10px 20px;
+  /* Controls spacing around each card */
   box-sizing: border-box;
   animation: fadeInUp 1s ease-in-out;
 }
 
 .timeline-item.left {
-  left: 0;        /* Positions the left cards on the left half */
+  left: 0;
   text-align: right;
   animation: slideInLeft 1s ease-in-out;
 }
 
 .timeline-item.right {
-  left: 40%;      /* Positions the right cards on the right half */
+  left: 54%;
+  /* Pushed to the right of the center line (50%) + gap */
   text-align: left;
   animation: slideInRight 1s ease-in-out;
 }
 
-/* The card content itself */
-.timeline-content {
-  background-color: #121212e5; /* Dark background */
-  border-radius: 8px;
-  padding: 1rem;
-  position: relative;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  color: #fff;
+/* Experience Details on Back of Card */
+.experience-details {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.experience-details li {
+  margin-bottom: 0.6rem;
+  color: #e0e0e0;
+}
+
+/* Job Keywords on Back of Card */
+.job-keywords {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  /* Always visible on the back face */
+  opacity: 1;
+  max-height: none;
+}
+
+.keyword-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #121212;
+  background-color: #1db954;
+  /* Spotify Green */
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Push the left card away from the center line */
 .timeline-item.left .timeline-content {
-  margin-left: auto;    /* This ensures the content shrinks from the left side */
-  margin-right: 1px;   /* Space between the card and the center line */
+  margin-left: auto;
+  /* This ensures the content shrinks from the left side */
+  margin-right: 1px;
+  /* Space between the card and the center line */
 }
 
 /* Push the right card away from the center line */
 .timeline-item.right .timeline-content {
-  margin-left: 1px;    /* Space between the card and the center line */
+  margin-left: 1px;
+  /* Space between the card and the center line */
   margin-right: auto;
 }
 
@@ -389,11 +571,13 @@ footer {
   position: absolute;
   width: 1px;
   height: 1px;
-  background-color: #1db954; /* Same as the line color */
-  border: 4px solid #000000; /* Dark background for the circle border */
+  background-color: #1db954;
+  /* Same as the line color */
+  border: 4px solid #000000;
+  /* Dark background for the circle border */
   border-radius: 50%;
-  top: 1px; 
-  left: 50%; 
+  top: 1px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -401,23 +585,26 @@ footer {
 /* Responsive: Single-column layout for smaller screens */
 @media only screen and (max-width: 768px) {
   .timeline::before {
-    left: 0; /* Hide or move the vertical line to the left side, or remove it if you prefer */
+    left: 0;
+    /* Hide or move the vertical line to the left side, or remove it if you prefer */
   }
 
   .timeline-item {
     width: 100%;
-    padding: 20px; /* Less side padding for mobile */
+    padding: 20px;
+    /* Less side padding for mobile */
     text-align: left !important;
     left: 0 !important;
   }
 
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
-    margin: 0 auto; /* Center the cards in mobile view */
+    margin: 0 auto;
+    /* Center the cards in mobile view */
   }
 
   .timeline-item::after {
-    left: 0; 
+    left: 0;
     transform: translateX(0);
   }
 }
@@ -431,12 +618,17 @@ footer {
 }
 
 .more-button {
-  display: block;           /* Makes it easier to center */
-  width: fit-content;       /* The button’s width will match its content */
-  margin: 2rem auto 0;      /* Auto left/right margins to center it */
-  padding: 1rem 2rem;       /* Larger padding for a bigger button */
-  font-size: 1.25rem;       /* Increase font size */
-  background-color: #1db954; 
+  display: block;
+  /* Makes it easier to center */
+  width: fit-content;
+  /* The button’s width will match its content */
+  margin: 2rem auto 0;
+  /* Auto left/right margins to center it */
+  padding: 1rem 2rem;
+  /* Larger padding for a bigger button */
+  font-size: 1.25rem;
+  /* Increase font size */
+  background-color: #1db954;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -445,123 +637,166 @@ footer {
 }
 
 .more-button:hover {
-  background-color: #169c46; /* Slightly darker green on hover */
+  background-color: #169c46;
+  /* Slightly darker green on hover */
 }
 
 
 
 /* Experience Section */
 .experience-section {
-padding: 4rem 0;
-background-color: #000; /* Black background */
+  padding: 4rem 0;
+  background-color: #000;
+  /* Black background */
 }
 
 .experience-section h2 {
-text-align: center;
-margin-bottom: 2rem;
-color: #1db954; /* Spotify green */
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954;
+  /* Spotify green */
 }
 
 .timeline {
-position: relative;
-max-width: 800px;
-margin: 0 auto;
-padding: 40px 0;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 .timeline::before {
-content: '';
-position: absolute;
-top: 0;
-bottom: 0;
-width: 4px;
-background-color: #1db954; /* Spotify green */
-left: 50%;
-margin-left: -2px;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #1db954;
+  /* Spotify green */
+  left: 50%;
+  margin-left: -2px;
 }
 
 .timeline-item {
-padding: 20px 40px;
-position: relative;
-width: 50%;
-animation: fadeIn 1s ease-in-out;
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .timeline-item.left {
-left: 0;
-text-align: right;
+  left: 0;
+  text-align: right;
 }
 
 .timeline-item.right {
-left: 50%;
-text-align: left;
+  left: 50%;
+  text-align: left;
 }
 
 .timeline-content {
-padding: 20px;
-background-color: #121212; /* Dark background */
-border-radius: 8px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #121212;
+  /* Dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-item img {
-width: 80px;
-height: 80px;
-border-radius: 50%;
-margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
 .timeline-item h3 {
-margin-bottom: 1rem;
-color: #1db954; /* Spotify green */
+  margin-bottom: 1rem;
+  color: #1db954;
+  /* Spotify green */
 }
 
 .timeline-item ul {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .timeline-item li {
-margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .timeline-item::after {
-content: '';
-position: absolute;
-width: 20px;
-height: 20px;
-background-color: #1db954; /* Spotify green */
-border: 4px solid #121212; /* Dark background */
-border-radius: 50%;
-top: 20px;
-left: 50%;
-margin-left: -10px;
-z-index: 1;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #1db954;
+  /* Spotify green */
+  border: 4px solid #121212;
+  /* Dark background */
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 100;
+  box-shadow: 0 0 0 4px rgba(29, 185, 84, 0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(29, 185, 84, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 185, 84, 0);
+  }
+}
+
+/* Date Badge Style */
+.timeline-content p:nth-of-type(2) {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgba(29, 185, 84, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(29, 185, 84, 0.3);
 }
 
 /* Education Section */
 .education-section {
-padding: 1rem 1;
-background-color: #121212; /* Dark background */
+  padding: 1rem 1;
+  background-color: #121212;
+  /* Dark background */
 }
 
 .education-section h2 {
-text-align: center;
-margin-bottom: 2rem;
-color: #1db954; /* Spotify green */
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954;
+  /* Spotify green */
 }
 
 .education-list {
-max-width: 800px;
-margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .education-item {
-  background-color: #000; /* Black background */
-  padding: 2rem; /* Increased padding */
+  background-color: #000;
+  /* Black background */
+  padding: 2rem;
+  /* Increased padding */
   border-radius: 10px;
-  margin-bottom: 2.5rem; /* Slightly more spacing */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Slightly more depth */
+  margin-bottom: 2.5rem;
+  /* Slightly more spacing */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  /* Slightly more depth */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -572,114 +807,125 @@ margin: 0 auto;
 
 
 .education-item h3 {
-margin-bottom: 1rem;
-color: #1db954; /* Spotify green */
+  margin-bottom: 1rem;
+  color: #1db954;
+  /* Spotify green */
 }
 
 
 /* Experience Section */
 .experience-section {
-padding: 4rem 0;
-background-color: #000; /* Black background */
+  padding: 4rem 0;
+  background-color: #000;
+  /* Black background */
 }
 
 .experience-section h2 {
-text-align: center;
-margin-bottom: 2rem;
-color: #1db954; /* Spotify green */
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954;
+  /* Spotify green */
 }
 
 .timeline {
-position: relative;
-max-width: 800px;
-margin: 0 auto;
-padding: 40px 0;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 .timeline::before {
-content: '';
-position: absolute;
-top: 0;
-bottom: 0;
-width: 4px;
-background-color: #1db954; /* Spotify green */
-left: 50%;
-margin-left: -2px;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #1db954;
+  /* Spotify green */
+  left: 50%;
+  margin-left: -2px;
 }
 
 .timeline-item {
-padding: 30px 40px;
-position: relative;
-width: 50%;
-animation: fadeIn 1s ease-in-out;
+  padding: 30px 40px;
+  position: relative;
+  width: 50%;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .timeline-item.left {
-left: 0;
-text-align: right;
+  left: 0;
+  text-align: right;
 }
 
 .timeline-item.right {
-left: 50%;
-text-align: left;
+  left: 50%;
+  text-align: left;
 }
 
 .timeline-content {
-padding: 20px;
-background-color: #121212; /* Dark background */
-border-radius: 8px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #121212;
+  /* Dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-item img {
-width: 80px;
-height: 80px;
-border-radius: 50%;
-margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
 .timeline-item h3 {
-margin-bottom: 1rem;
-color: #1db954; /* Spotify green */
+  margin-bottom: 1rem;
+  color: #1db954;
+  /* Spotify green */
 }
 
 .timeline-item ul {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .timeline-item li {
-margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .timeline-item::after {
-content: '';
-position: absolute;
-width: 20px;
-height: 20px;
-background-color: transparent; /* Spotify green */
-border: 4px solid #121212; /* Dark background */
-border-radius: 50%;
-top: 20px;
-left: 50%;
-margin-left: -10px;
-z-index: 1;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  /* Spotify green */
+  border: 4px solid #121212;
+  /* Dark background */
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
 }
 
 .education-item img {
-  max-width: 100px; /* Adjust the size as needed */
+  max-width: 100px;
+  /* Adjust the size as needed */
   margin-bottom: 1rem;
 }
 
 .education-section {
   padding: 4rem 0;
-  background-color: #121212; /* Dark background */
+  background-color: #121212;
+  /* Dark background */
 }
 
 .education-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 .education-list {
@@ -688,7 +934,8 @@ z-index: 1;
 }
 
 .education-item {
-  background-color: #000; /* Black background */
+  background-color: #000;
+  /* Black background */
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 2rem;
@@ -710,26 +957,31 @@ z-index: 1;
 
 .education-header h3 {
   margin: 0;
-  color: #1db954; /* Spotify green */
+  color: #1db954;
+  /* Spotify green */
 }
 
 .education-header img {
-  max-width: 100px; /* Adjust the size as needed */
+  max-width: 100px;
+  /* Adjust the size as needed */
   height: auto;
   margin-left: 1rem;
-  border-radius: 8px; /* Adjust the radius for more or less rounding */
+  border-radius: 8px;
+  /* Adjust the radius for more or less rounding */
 }
 
 /* Container that controls the slide-down animation */
 .more-projects-wrapper {
-  max-height: 200px; /* Height to show a blurred preview (adjust based on your card sizes) */
+  max-height: 200px;
+  /* Height to show a blurred preview (adjust based on your card sizes) */
   overflow: hidden;
   transition: max-height 0.6s ease;
 }
 
 /* When expanded, set a large max-height to reveal all content */
 .more-projects-wrapper.expanded {
-  max-height: 2000px; /* Ensure this is large enough for all extra projects */
+  max-height: 2000px;
+  /* Ensure this is large enough for all extra projects */
 }
 
 /* Initially blur the extra projects */
@@ -751,23 +1003,33 @@ z-index: 1;
 .more-button.expanded i {
   transform: rotate(180deg);
 }
+
 .project-card {
   opacity: 1;
   transition: opacity 0.6s ease;
 }
+
 @media only screen and (max-width: 768px) {
   .project-grid {
-    display: flex; /* Ensure proper layout on mobile */
-    flex-direction: column; /* Stack projects vertically */
-    align-items: center; /* Center-align project cards */
-    gap: 1.5rem; /* Add spacing between project cards */
+    display: flex;
+    /* Ensure proper layout on mobile */
+    flex-direction: column;
+    /* Stack projects vertically */
+    align-items: center;
+    /* Center-align project cards */
+    gap: 1.5rem;
+    /* Add spacing between project cards */
   }
 
   .project-card {
-    width: 90%; /* Adjust width for smaller screens */
-    max-width: 500px; /* Limit maximum width */
-    text-align: center; /* Center-align text */
-    margin: 0 auto; /* Center the project card horizontally */
+    width: 90%;
+    /* Adjust width for smaller screens */
+    max-width: 500px;
+    /* Limit maximum width */
+    text-align: center;
+    /* Center-align text */
+    margin: 0 auto;
+    /* Center the project card horizontally */
   }
 }
 
@@ -787,7 +1049,8 @@ z-index: 1;
     bottom: 0;
     left: 50%;
     width: 3px;
-    background-color: #1db954; /* Keeps the green timeline */
+    background-color: #1db954;
+    /* Keeps the green timeline */
     transform: translateX(-50%);
   }
 
@@ -824,7 +1087,7 @@ z-index: 1;
     left: 50%;
     width: 15px;
     height: 15px;
-    background-color:transparent;
+    background-color: transparent;
     border-radius: 50%;
     border: 3px solid #12121200;
     transform: translateX(-50%);
@@ -833,7 +1096,8 @@ z-index: 1;
   .timeline-item img {
     display: block;
     margin: 0 auto 10px;
-    width: 80px; /* Adjust image size */
+    width: 80px;
+    /* Adjust image size */
     height: 80px;
     border-radius: 50%;
   }
@@ -841,24 +1105,35 @@ z-index: 1;
 
 /* Container for the skill list */
 .project-skills {
-  list-style: none;        /* Remove default bullet points */
-  margin: 1rem 0;          /* Spacing above/below */
+  list-style: none;
+  /* Remove default bullet points */
+  margin: 1rem 0;
+  /* Spacing above/below */
   padding: 0;
-  display: flex;           /* Lay them out side by side */
-  flex-wrap: wrap;         /* Wrap to the next line if too long */
-  gap: 0.5rem;             /* Space between skill tags */
+  display: flex;
+  /* Lay them out side by side */
+  flex-wrap: wrap;
+  /* Wrap to the next line if too long */
+  gap: 0.5rem;
+  /* Space between skill tags */
 }
 
 /* Individual skill tags (pills) */
 .project-skills li {
   display: inline-block;
   padding: 0.4rem 0.8rem;
-  border: 1px solid #1db954; /* A red border color (example) */
-  color: #ffffff;            /* Matching text color */
-  background-color: #1a1919; /* White background (or any color you like) */
-  border-radius: 16px;       /* Rounded pill shape */
-  font-size: 0.9rem;         /* Slightly smaller text */
-  cursor: default;           /* Pointer not needed since they’re not links */
+  border: 1px solid #1db954;
+  /* A red border color (example) */
+  color: #ffffff;
+  /* Matching text color */
+  background-color: #1a1919;
+  /* White background (or any color you like) */
+  border-radius: 16px;
+  /* Rounded pill shape */
+  font-size: 0.9rem;
+  /* Slightly smaller text */
+  cursor: default;
+  /* Pointer not needed since they’re not links */
   transition: background-color 0.3s;
 }
 
@@ -893,7 +1168,7 @@ z-index: 1;
   border-radius: 8px;
   width: 200px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
   animation: zoomIn 1s ease-in-out;
 }
@@ -917,9 +1192,11 @@ z-index: 1;
   font-size: 0.9rem;
   color: #ccc;
 }
+
 .publications-section {
   padding: 4rem 0;
-  background-color: #000; /* or another background color of your choice */
+  background-color: #000;
+  /* or another background color of your choice */
 }
 
 .publications-section h2 {
@@ -938,14 +1215,14 @@ z-index: 1;
   background-color: #121212;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 1.2s ease-in-out;
 }
 
 .publication-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .publication-card img {
@@ -969,6 +1246,7 @@ z-index: 1;
   font-size: 0.9rem;
   color: #1db954;
 }
+
 .about-section {
   padding: 4rem 0;
   background-color: #121212;
@@ -991,7 +1269,7 @@ z-index: 1;
   max-width: 250px;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .about-info {
@@ -1013,13 +1291,15 @@ z-index: 1;
 /* Publications Section */
 .publications-section {
   padding: 4rem 0;
-  background-color: #000; /* Maintains black background */
+  background-color: #000;
+  /* Maintains black background */
 }
 
 .publications-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Green accent */
+  color: #1db954;
+  /* Green accent */
 }
 
 /* Responsive Grid Layout for publications */
@@ -1034,14 +1314,14 @@ z-index: 1;
   background-color: #121212;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 1.2s ease-in-out;
 }
 
 .publication-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* Card Content */
@@ -1054,19 +1334,23 @@ z-index: 1;
 .publication-info h3 {
   margin: 0 0 0.5rem;
   font-size: 1.1rem;
-  color: #1db954; /* Green accent for titles */
+  color: #1db954;
+  /* Green accent for titles */
 }
 
 /* Short description / reference text */
 .publication-info p {
   margin: 0 0 1rem;
   font-size: 0.9rem;
-  color: #ccc; /* Slightly lighter gray text for references */
+  color: #ccc;
+  /* Slightly lighter gray text for references */
 }
+
 .publication-link {
   display: block;
   width: fit-content;
-  margin: 1rem auto 0; /* Center the button */
+  margin: 1rem auto 0;
+  /* Center the button */
   color: #1db954;
   text-decoration: none;
   font-weight: 600;
@@ -1080,6 +1364,7 @@ z-index: 1;
   background-color: #1db954;
   color: #000;
 }
+
 /* Button/Link to paper */
 .publication-link {
   color: #1db954;
@@ -1100,16 +1385,19 @@ z-index: 1;
   background-color: #1db954;
   color: #000;
 }
+
 /* Workshops & Mentorships Slideshow Section */
 .workshops-section {
   padding: 4rem 0;
-  background-color: #000; /* Consistent with your other sections */
+  background-color: #000;
+  /* Consistent with your other sections */
 }
 
 .workshops-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #1db954; /* Spotify green accent */
+  color: #1db954;
+  /* Spotify green accent */
 }
 
 .slider {
@@ -1122,14 +1410,17 @@ z-index: 1;
 .slide {
   display: none;
   text-align: center;
-  opacity: 0; /* Start with hidden opacity */
-  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  opacity: 0;
+  /* Start with hidden opacity */
+  transition: opacity 0.5s ease;
+  /* Smooth transition for opacity */
   animation: fadeIn 1s ease-in-out;
 }
 
 .slide.active {
   display: block;
-  opacity: 1; /* Fully visible when active */
+  opacity: 1;
+  /* Fully visible when active */
 }
 
 .slide img {
@@ -1142,7 +1433,8 @@ z-index: 1;
   color: #fff;
 }
 
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1180,10 +1472,12 @@ z-index: 1;
 }
 
 .dot.active {
-  background-color: #1db954; /* Spotify green */
+  background-color: #1db954;
+  /* Spotify green */
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -1206,50 +1500,68 @@ html, body {
 }
 
 .achievements-slider .slide img {
-  max-width: 90%; /* Reduce the width to 70% of the container */
-  height: auto; /* Maintain aspect ratio */
-  margin: 0 auto; /* Center the image */
-  display: block; /* Ensure the image is centered */
+  max-width: 90%;
+  /* Reduce the width to 70% of the container */
+  height: auto;
+  /* Maintain aspect ratio */
+  margin: 0 auto;
+  /* Center the image */
+  display: block;
+  /* Ensure the image is centered */
   /* Removed animation */
 }
 
 .achievements-slider .slide {
   display: none;
   text-align: center;
-  opacity: 0; /* Start with hidden opacity */
-  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  opacity: 0;
+  /* Start with hidden opacity */
+  transition: opacity 0.5s ease;
+  /* Smooth transition for opacity */
   animation: fadeIn 1s ease-in-out;
 }
 
 .achievements-slider .slide.active {
   display: block;
-  opacity: 1; /* Fully visible when active */
+  opacity: 1;
+  /* Fully visible when active */
 }
 
 /* Standardize and increase image size in the achievements slider */
 .achievements-slider .slide img {
-  width: 100%; /* Ensure all images take up the full width of the container */
-  max-width: 650px; /* Increased maximum width for larger images */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  /* Ensure all images take up the full width of the container */
+  max-width: 650px;
+  /* Increased maximum width for larger images */
+  height: auto;
+  /* Maintain aspect ratio */
   display: block;
-  margin: 0 auto; /* Center the image */
+  margin: 0 auto;
+  /* Center the image */
 }
 
 /* Achievements Section */
 .achievements-slider .slide img {
-  width: 100%; /* Ensure images take up the full width of the container */
-  max-width: 100%; /* Remove any fixed width constraints */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  /* Ensure images take up the full width of the container */
+  max-width: 100%;
+  /* Remove any fixed width constraints */
+  height: auto;
+  /* Maintain aspect ratio */
   display: block;
-  margin: 0 auto; /* Center the image */
-  border-radius: 8px; /* Add consistent border radius */
+  margin: 0 auto;
+  /* Center the image */
+  border-radius: 8px;
+  /* Add consistent border radius */
 }
 
 /* Responsive adjustments for smaller screens */
 @media only screen and (max-width: 768px) {
   .achievements-slider .slide img {
-    width: 90%; /* Slightly reduce width for better fit */
-    max-width: 90%; /* Ensure it doesn't exceed container width */
+    width: 90%;
+    /* Slightly reduce width for better fit */
+    max-width: 90%;
+    /* Ensure it doesn't exceed container width */
   }
 }
 
@@ -1271,6 +1583,7 @@ html, body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1281,6 +1594,7 @@ html, body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1291,6 +1605,7 @@ html, body {
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -1302,6 +1617,7 @@ html, body {
     opacity: 0;
     transform: translateX(-100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -1313,6 +1629,7 @@ html, body {
     opacity: 0;
     transform: translateX(100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -1395,7 +1712,13 @@ footer {
 }
 
 /* Add fallback for sections to ensure visibility */
-section, .skill-card, .project-card, .timeline-item, .publication-card, .slide, footer {
+section,
+.skill-card,
+.project-card,
+.timeline-item,
+.publication-card,
+.slide,
+footer {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -1421,36 +1744,56 @@ section, .skill-card, .project-card, .timeline-item, .publication-card, .slide, 
 
 .resume-button {
   display: inline-block;
-  padding: 0.5rem 1rem; /* Smaller padding */
-  font-size: 0.9rem; /* Smaller font size */
+  padding: 0.5rem 1rem;
+  /* Smaller padding */
+  font-size: 0.9rem;
+  /* Smaller font size */
   font-weight: 600;
-  color: #fff; /* White text */
-  background-color: transparent; /* Transparent background */
-  border: 1px solid #fff; /* White border */
+  color: #fff;
+  /* White text */
+  background-color: transparent;
+  /* Transparent background */
+  border: 1px solid #fff;
+  /* White border */
   border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .resume-button:hover {
-  background-color: #fff; /* White background on hover */
-  color: #000; /* Black text on hover */
+  background-color: #fff;
+  /* White background on hover */
+  color: #000;
+  /* Black text on hover */
 }
 
 /* Ensure project cards are visible on mobile */
 @media only screen and (max-width: 768px) {
   .project-card {
-    opacity: 1 !important; /* Force visibility */
-    transform: translateY(0) !important; /* Reset any translation */
-    animation: none !important; /* Disable animations for mobile */
+    opacity: 1 !important;
+    /* Force visibility */
+    transform: translateY(0) !important;
+    /* Reset any translation */
+    animation: none !important;
+    /* Disable animations for mobile */
   }
 }
 
 /* Ensure visibility for all animated elements on mobile */
 @media only screen and (max-width: 768px) {
-  section, .skill-card, .project-card, .timeline-item, .publication-card, .slide, footer {
-    opacity: 1 !important; /* Force visibility */
-    transform: translateY(0) !important; /* Reset any translation */
-    animation: none !important; /* Disable animations for mobile */
+
+  section,
+  .skill-card,
+  .project-card,
+  .timeline-item,
+  .publication-card,
+  .slide,
+  footer {
+    opacity: 1 !important;
+    /* Force visibility */
+    transform: translateY(0) !important;
+    /* Reset any translation */
+    animation: none !important;
+    /* Disable animations for mobile */
   }
 }
