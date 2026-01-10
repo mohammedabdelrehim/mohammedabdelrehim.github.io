@@ -108,11 +108,11 @@
 
     <h3>A. System Flowchart</h3>
     <figure>
-      <img src="assets/images/projects/parallel_robot/robot_1.jpg" alt="System Design" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_manipulator/robot_1.jpg" alt="System Design" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 1. Robot design and architecture</figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/parallel_robot/robot_2.jpg" alt="System Model" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_manipulator/robot_2.jpg" alt="System Model" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 2. Simulink Model</figcaption>
     </figure>
 
@@ -138,17 +138,6 @@
       <li><strong>Prismatic Range:</strong> 70 mm to 580 mm </li>
       <li><strong>Link Length:</strong> 365 mm </li>
     </ul>
-
-    <h3>D. Plate Position Generation</h3>
-    <p>
-      To test the control laws, a helical trajectory was generated. 
-      The desired path follows a spiral motion defined by the following parameters:
-    </p>
-    <ol>
-      <li><strong>Radius (r):</strong> 0.01 m </li>
-      <li><strong>Velocity (v):</strong> 0.01 m/s </li>
-      <li><strong>Angular Velocity (ω):</strong> π/6 rad/s </li>
-    </ol>
 
     <h2>III. Control and Motion Planning</h2>
     <p>
@@ -185,9 +174,9 @@ z = z0 + v * t
     <pre><code>f = M(d)[d_ddot + Kp.e + Kv.e_dot] + C(d, d_dot)d_dot + G(d)</code></pre>
 
     <h2>IV. Trajectory Generation</h2>
-    <h3>A. Cleaning Trajectory</h3>
+    <h3>A. Trajectory planning</h3>
     <p>
-      The cleaning trajectory is analyzed through velocity and acceleration analysis to ensure smooth tracking
+      The trajectory is analyzed through velocity and acceleration analysis to ensure smooth tracking
       The Jacobian matrix $Jdi$ is utilized to map the task-space velocity to the joint velocity
     </p>
 
@@ -224,15 +213,15 @@ z = z0 + v * t
       The tracking results show that while all controllers follow the trajectory, CTC provides the highest accuracy
     </p>
     <figure>
-      <img src="assets/images/projects/parallel_robot/robot_3.jpg" alt="Hardware Implementation" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_manipulator/robot_3.jpg" alt="Hardware Implementation" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 2. Hardware Implementation of the Robot compared to body size </figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/parallel_robot/pid.jpg" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_manipulator/pid.jpg" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 3. PID Controller Results for Helix Trajectory </figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/parallel_robot/ctc.jpg" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_manipulator/ctc.jpg" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 4. CTC Controller Results for Helix Trajectory </figcaption>
     </figure>
 
