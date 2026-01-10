@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Plate Cleaning Robot using ABB IRB 120</title>
+  <title>Parallel Robot Manipulator for Drug Delivery</title>
   <!-- Link your main stylesheet -->
   <link rel="stylesheet" href="style.css">
   <!-- Font Awesome for GitHub icon -->
@@ -65,7 +65,7 @@
   <!-- Navigation Bar (uses default styling from style.css) -->
   <nav>
     <div class="container">
-      <a href="index.html" class="logo">Jerin Peter</a>
+      <a href="index.html" class="logo">Robotics</a>
       <ul class="nav-links">
         <li><a href="index.html#projects">Projects</a></li>
         <li><a href="index.html#experience">Experience</a></li>
@@ -77,80 +77,78 @@
 
   <!-- Report Content -->
   <div class="report-container">
-    <h1>Implementation of a Plate Cleaning Robot using ABB IRB 120</h1>
-    <p><em>A Comprehensive Approach to Dishwashing Automation</em></p>
+    <h1>Parallel Robot Manipulator for Drug Delivery</h1>
+    <p><em>A robotic manipulator to guide nano robots inside the human body</em></p>
 
     <h2>Abstract</h2>
     <p>
-      This project presents a comprehensive implementation of a plate cleaning robot utilizing the ABB IRB 120 robotic arm.
-      The robot mimics human dishwashing motions through a sophisticated spiral trajectory, ensuring thorough cleaning of
-      plates placed randomly within a predefined workspace. The system leverages numerical inverse kinematics (IK) and
-      Proportional-Derivative (PD) control strategies for precise end-effector positioning and trajectory following.
-      Detailed explanations of the task space definition, plate position generation, trajectory planning, and control methodologies are
-      provided, highlighting the complexity and intricacies involved in developing such a robotic system.
+      This project presents a comprehensive implementation of a parallel robot utilizing three link chains to control nano robots.
+      The robot's end effector holds an omni-magnet and move in sophisticated spiral trajectory, allowing smooth flow a drug carrying nano
+      robots inside the human body. The system leverages numerical inverse kinematics (IK), a predefined workspace and a Computed Torque Control
+      (CTC) strategY for precise end-effector positioning and trajectory following. Detailed explanations of the task space definition, 
+      trajectory planning, and control methodologies are provided, highlighting the complexity and intricacies involved in developing such a robotic system.
     </p>
     <p><strong>Index Terms:</strong> robotics, inverse kinematics, PD control, trajectory planning, automation</p>
 
-    <h2>I. Introduction</h2>
+<h2>I. Introduction</h2>
     <p>
-      The automation of routine tasks, such as dishwashing, has seen significant advancements with the integration of robotic
-      systems. This report delves into the meticulous implementation of a robotic system designed to mimic human dishwashing
-      motions. The ABB IRB 120 robotic arm is employed in this project to perform dishwashing tasks by executing a spiral
-      motion to clean plates, emulating human-like washing techniques. This report provides detailed explanations of the system’s
-      components, including task space definition, inverse kinematics, control strategies, and trajectory planning.
+      [cite_start]Robot manipulators evolved significantly after WWII, starting with the handling of radioactive materials and moving into widespread industrial use for assembly and welding[cite: 52, 53]. 
+      [cite_start]Unlike serial robots, which consist of a single chain from base to end-effector, parallel robots utilize several chain links[cite: 81, 84]. 
+      [cite_start]Parallel manipulators are preferred for operations requiring high speed, acceleration, and stiffness, as they feature a low mobile mass with motors placed at the base[cite: 132, 137, 140, 146]. 
+      [cite_start]However, they often face challenges such as a relatively smaller workspace and more complex dynamics compared to serial systems[cite: 106, 107].
     </p>
 
     <h2>II. System Overview</h2>
     <p>
-      The robotic system comprises an ABB IRB 120 robotic arm programmed to navigate a defined workspace, identify plate positions,
-      and perform cleaning operations. The core components of the system include the inverse kinematics method, task space
-      boundaries, plate position generation, and control strategies.
+      [cite_start]The system is a 3-DOF translational parallel manipulator[cite: 1]. 
+      [cite_start]It consists of a fixed base and a moving platform connected by three kinematic chains[cite: 253]. 
+      [cite_start]Each arm features a prismatic joint that performs translational motion and parallelogram links that perform general plane motion[cite: 312, 313]. 
+      [cite_start]The core objective of the modeling is to derive an accurate mathematical representation for high-precision control[cite: 173].
     </p>
 
     <h3>A. System Flowchart</h3>
     <figure>
       <img src="assets/images/projects/arm_project/fig1.png" alt="System Flowchart" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 1. System Flowchart</figcaption>
+      <figcaption>Fig. 1. Control and Simulation Flowchart</figcaption>
     </figure>
 
     <h3>B. Inverse Kinematics Method</h3>
     <p>
-      Inverse kinematics (IK) is pivotal in determining the required joint angles for the robotic arm to achieve a specific
-      end-effector position and orientation. The numerical IK method is chosen for its robustness in handling the complex
-      configurations of the robotic arm. The IK problem is formulated as:
+      [cite_start]Inverse kinematics is used to determine the joint variables required to reach a specific end-effector position[cite: 382]. 
+      [cite_start]Starting from the loop closure equation $P + bi = ai + diui + ci + Lli$ [cite: 335][cite_start], we simplify the constants and rearrange for $di$[cite: 384, 386]. 
+      For the $i$-th kinematic chain, the position of the cart is expressed as:
     </p>
-    <pre><code>Find q such that T(q) = Td</code></pre>
+    <pre><code>di = λiz ± sqrt(li² − λix² − λiy²)</code></pre>
     <p>
-      where <em>q</em> is the vector of joint angles, <em>T(q)</em> is the transformation matrix representing the end-effector pose,
-      and <em>Td</em> is the desired end-effector pose.
+      [cite_start]where $λi$ is the vector from the base to the platform minus constant geometric offsets[cite: 389, 415].
     </p>
 
     <h3>C. Task Space Definition</h3>
     <p>
-      The task space is defined to exclude the robot’s base area, ensuring safe operation. The boundaries are set as follows:
+      [cite_start]The task space is governed by the physical dimensions of the Linear Delta Robot[cite: 336]. 
+      Important workspace parameters include:
     </p>
     <ul>
-      <li>X-axis: <em>xmin</em> = 0.0 m, <em>xmax</em> = 0.32 m</li>
-      <li>Y-axis: <em>ymin</em> = –0.38 m, <em>ymax</em> = 0.32 m</li>
-      <li>Z-axis: <em>zplate</em> = 0.03 m (fixed plate height)</li>
+      [cite_start]<li><strong>Frame Height:</strong> 870 mm [cite: 357]</li>
+      [cite_start]<li><strong>Base Side Length:</strong> 700 mm [cite: 357]</li>
+      [cite_start]<li><strong>Prismatic Range:</strong> 70 mm to 580 mm [cite: 357]</li>
+      [cite_start]<li><strong>Link Length:</strong> 365 mm [cite: 357]</li>
     </ul>
 
     <h3>D. Plate Position Generation</h3>
     <p>
-      A function is employed to generate random plate positions within the task space. The generated positions must ensure
-      no overlap between plates and maintain a minimum distance from the robot’s base. This is achieved through the following steps:
+      [cite_start]To test the control laws, a helical trajectory was generated[cite: 876]. 
+      The desired path follows a spiral motion defined by the following parameters:
     </p>
     <ol>
-      <li><strong>Random Position Generation:</strong> A new position <em>Pnew</em> is generated within the task space boundaries.</li>
-      <li><strong>Distance Calculation:</strong> The Euclidean distances between <em>Pnew</em> and existing plate positions <em>Pi</em> are calculated.</li>
-      <li><strong>Validation:</strong> The new position is validated if the distances satisfy the minimum distance constraint
-          (<em>minDistance</em> = 0.28 m) and the distance from the base (<em>baseRadius</em> = 0.25 m).</li>
+      [cite_start]<li><strong>Radius (r):</strong> 0.01 m [cite: 782]</li>
+      [cite_start]<li><strong>Velocity (v):</strong> 0.01 m/s [cite: 788]</li>
+      [cite_start]<li><strong>Angular Velocity (ω):</strong> π/6 rad/s [cite: 784]</li>
     </ol>
 
     <h2>III. Control and Motion Planning</h2>
     <p>
-      The robot’s motion planning involves two primary phases: cleaning the plates using a spiral trajectory and transitioning
-      between plates.
+      [cite_start]The control system focuses on tracking the desired helical trajectory through joint space control using an ADAMS simulation loop[cite: 835, 855].
     </p>
 
     <h3>A. Spiral Trajectory for Cleaning</h3>
@@ -158,112 +156,93 @@
       <li>
         <strong>Parameters Definition:</strong>
         <ul>
-          <li>Number of points (<em>npoints</em>): 55</li>
-          <li>Radius (<em>r</em>): 0.145 m</li>
-          <li>Number of turns (<em>nturns</em>): 3</li>
-          <li>Height above plate (<em>zabove plate</em>): 0.05 m</li>
+          [cite_start]<li>Frequency (ω): π/6 [cite: 784]</li>
+          [cite_start]<li>Helix Radius (r): 0.01 m [cite: 782]</li>
+          [cite_start]<li>Total Time: 30 seconds [cite: 790]</li>
+          [cite_start]<li>Initial Z (z0): 0.316 m [cite: 786]</li>
         </ul>
       </li>
       <li>
         <strong>Trajectory Equations:</strong>
         <pre><code>
-θ = linspace(0, 2π · nturns, npoints)
-ri = linspace(0, r, npoints)
-xi = ri cos(θi) + xplate
-yi = ri sin(θi) + yplate
-zi = zplate + zabove plate
+x = r * sin(ωt)
+y = r * cos(ωt)
+z = z0 + v * t
         </code></pre>
       </li>
     </ol>
 
     <h3>B. Transition Trajectory</h3>
     <p>
-      Transitioning between plates requires generating smooth trajectories that avoid collisions with the robot’s base and other obstacles.
-      This is achieved using a cubic polynomial trajectory planning method, which ensures smooth acceleration and deceleration phases.
+      [cite_start]Motion planning for the robot is implemented through high-precision control schemes[cite: 1258]. 
+      [cite_start]The Computed Torque Control (CTC) law is particularly effective as it linearizes the closed-loop system by compensating for nonlinear dynamics[cite: 707]. 
+      The CTC control law is defined as:
     </p>
-    <ol>
-      <li><strong>Waypoints Definition:</strong> Define intermediate waypoints that guide the robot around the base, avoiding obstacles.</li>
-      <li><strong>Midpoint Angle Calculation:</strong> Calculate angles for the waypoints using the <code>atan2</code> function.</li>
-      <li><strong>Shortest Arc Calculation:</strong> Determine the shortest arc between angles.</li>
-      <li><strong>Midpoint Waypoints:</strong> Create intermediate waypoints along the arc at a safe distance from the base.</li>
-      <li><strong>Trajectory Planning:</strong> Use a cubic polynomial method (e.g., <code>cubicpolytraj</code> in MATLAB) to generate the trajectory.</li>
-    </ol>
+    <pre><code>f = M(d)[d_ddot + Kp.e + Kv.e_dot] + C(d, d_dot)d_dot + G(d)</code></pre>
 
     <h2>IV. Trajectory Generation</h2>
     <h3>A. Cleaning Trajectory</h3>
     <p>
-      The spiral trajectory for cleaning is generated using a parametric approach, where the radius increases linearly with the
-      angle to form a spiral:
+      [cite_start]The cleaning trajectory is analyzed through velocity and acceleration analysis to ensure smooth tracking[cite: 1174]. 
+      [cite_start]The Jacobian matrix $Jdi$ is utilized to map the task-space velocity to the joint velocity[cite: 466, 467].
     </p>
-    <pre><code>
-xi = ri cos(θi) + xplate
-yi = ri sin(θi) + yplate
-zi = zplate + zabove plate
-    </code></pre>
 
     <h3>B. Transition Trajectory</h3>
     <p>
-      The transition trajectory ensures smooth movement from one plate to another. It is defined by planning the robot’s motion between intermediate waypoints:
+      [cite_start]Acceleration analysis provides the necessary input for dynamic compensation[cite: 1175]. 
+      The acceleration of the $i$-th joint is given by:
     </p>
-    <pre><code>
-p(t) = a3 t³ + a2 t² + a1 t + a0
-    </code></pre>
+    <pre><code>di_ddot = Jdi * P_ddot + P_dot_T * Hi * P_dot</code></pre>
     <p>
-      where <em>p(t)</em> is the position at time <em>t</em> and the coefficients are determined by the initial and final conditions.
+      [cite_start]where $Hi$ accounts for the centrifugal and Coriolis effects of the kinematic chain[cite: 524, 525].
     </p>
 
     <h2>V. Experimental Setup and Results</h2>
     <h3>A. Initial Setup</h3>
     <p>
-      The robot starts at the origin with a zero joint configuration. Plates are placed randomly within the task space, ensuring spacing constraints.
+      [cite_start]The dynamic model was derived using the Principle of Virtual Work, incorporating a mass distribution factor (w) to simplify the inertial forces of the leg links[cite: 555, 577, 605].
     </p>
 
     <h3>B. Simulation Execution</h3>
     <p>
-      The simulation proceeds with the robot identifying the nearest unvisited plate, executing the spiral cleaning motion, and transitioning to the next plate. This loop continues until all plates are cleaned.
+      [cite_start]Simulations were conducted for PD, PID, and CTC controllers[cite: 644, 687, 714]. 
+      [cite_start]The results were compared to the desired helix trajectory to assess accuracy[cite: 1081].
     </p>
 
     <h3>C. Shortest Path Calculation</h3>
-    <pre><code>
-dist(i) = √((xcurrent - xi)² + (ycurrent - yi)²)
-    </code></pre>
     <p>
-      The plate with the minimum distance is chosen as the next target.
+      [cite_start]Root Mean Square Error (RMSE) was used as the primary metric for accuracy[cite: 1131, 1133].
     </p>
+    <pre><code>e = sqrt( (1/n) * Σ(dd - d)² )</code></pre>
 
     <h3>D. Visualization</h3>
     <p>
-      The simulation provides real-time visualization of the robot’s movements, including spiral and transition trajectories.
+      [cite_start]The tracking results show that while all controllers follow the trajectory, CTC provides the highest accuracy[cite: 1164, 1167].
     </p>
     <figure>
-      <img src="assets/images/projects/arm_project/fig2.png" alt="Spiral and Transition Trajectories" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 2. Spiral and Transition Trajectories</figcaption>
+      <img src="assets/images/projects/arm_project/fig2.png" alt="PD Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. [cite_start]PD Controller Results for Helix Trajectory [cite: 876]</figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/arm_project/fig3.png" alt="Spiral Cleaning Trajectory" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 3. Robot executing the spiral cleaning trajectory on plates</figcaption>
+      <img src="assets/images/projects/arm_project/fig3.png" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 3. [cite_start]PID Controller Results for Helix Trajectory [cite: 939]</figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/arm_project/fig4.png" alt="Transition Trajectory" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 4. Robot transitioning between plates using cubic polynomial trajectory</figcaption>
+      <img src="assets/images/projects/arm_project/fig4.png" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 4. [cite_start]CTC Controller Results for Helix Trajectory [cite: 1002]</figcaption>
     </figure>
 
     <h2>VI. Conclusion</h2>
     <p>
-      The robotic system successfully demonstrates dishwashing tasks through a controlled spiral motion. The implementation highlights the effectiveness of numerical IK methods and PD controllers in achieving precise and efficient robotic operations. Future work may include optimizing control parameters and exploring advanced trajectory planning algorithms.
+      [cite_start]The project successfully determined the mathematical model of the Linear Delta Robot and compared PD, PID, and CTC control methods[cite: 1173, 1176]. 
+      [cite_start]The CTC controller demonstrated superior performance with the lowest RMSE across all axes[cite: 1164, 1165, 1166, 1167]. 
+      [cite_start]Future recommendations include using Lagrange methods for dynamics and implementing disturbance observers for experimental testing[cite: 1198, 1200].
     </p>
 
     <h2>MATLAB Code</h2>
     <div class="github-link">
-      <a href="https://github.com/jerinpeter/DIshWashingArm" target="_blank">
+      <a href="https://github.com/mohammedabdelrehim/LinearDeltaRobot" target="_blank">
         <i class="fab fa-github" style="font-size: 3rem;"></i>
       </a>
     </div>
   </div>
-  
-  <!-- Footer -->
-  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
-    <p>&copy; 2025 Jerin Peter. All rights reserved.</p>
-  </footer>
-</body>
-</html>
