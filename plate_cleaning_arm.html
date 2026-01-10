@@ -85,10 +85,10 @@
       This project presents a comprehensive implementation of a parallel robot utilizing three link chains to control nano robots.
       The robot's end effector holds an omni-magnet and move in sophisticated spiral trajectory, allowing smooth flow a drug carrying nano
       robots inside the human body. The system leverages numerical inverse kinematics (IK), a predefined workspace and a Computed Torque Control
-      (CTC) strategY for precise end-effector positioning and trajectory following. Detailed explanations of the task space definition, 
+      (CTC) strategy for precise end-effector positioning and trajectory following. Detailed explanations of the task space definition, 
       trajectory planning, and control methodologies are provided, highlighting the complexity and intricacies involved in developing such a robotic system.
     </p>
-    <p><strong>Index Terms:</strong> robotics, inverse kinematics, PD control, trajectory planning, automation</p>
+    <p><strong>Index Terms:</strong> robotics, inverse kinematics, CTC control, trajectory planning, automation</p>
 
 <h2>I. Introduction</h2>
     <p>
@@ -174,8 +174,8 @@ z = z0 + v * t
 
     <h3>B. Transition Trajectory</h3>
     <p>
-      [cite_start]Motion planning for the robot is implemented through high-precision control schemes[cite: 1258]. 
-      [cite_start]The Computed Torque Control (CTC) law is particularly effective as it linearizes the closed-loop system by compensating for nonlinear dynamics[cite: 707]. 
+      Motion planning for the robot is implemented through high-precision control schemes
+      The Computed Torque Control (CTC) law is particularly effective as it linearizes the closed-loop system by compensating for nonlinear dynamics 
       The CTC control law is defined as:
     </p>
     <pre><code>f = M(d)[d_ddot + Kp.e + Kv.e_dot] + C(d, d_dot)d_dot + G(d)</code></pre>
@@ -183,65 +183,65 @@ z = z0 + v * t
     <h2>IV. Trajectory Generation</h2>
     <h3>A. Cleaning Trajectory</h3>
     <p>
-      [cite_start]The cleaning trajectory is analyzed through velocity and acceleration analysis to ensure smooth tracking[cite: 1174]. 
-      [cite_start]The Jacobian matrix $Jdi$ is utilized to map the task-space velocity to the joint velocity[cite: 466, 467].
+      The cleaning trajectory is analyzed through velocity and acceleration analysis to ensure smooth tracking
+      The Jacobian matrix $Jdi$ is utilized to map the task-space velocity to the joint velocity
     </p>
 
     <h3>B. Transition Trajectory</h3>
     <p>
-      [cite_start]Acceleration analysis provides the necessary input for dynamic compensation[cite: 1175]. 
+      Acceleration analysis provides the necessary input for dynamic compensation
       The acceleration of the $i$-th joint is given by:
     </p>
     <pre><code>di_ddot = Jdi * P_ddot + P_dot_T * Hi * P_dot</code></pre>
     <p>
-      [cite_start]where $Hi$ accounts for the centrifugal and Coriolis effects of the kinematic chain[cite: 524, 525].
+      where $Hi$ accounts for the centrifugal and Coriolis effects of the kinematic chain
     </p>
 
     <h2>V. Experimental Setup and Results</h2>
     <h3>A. Initial Setup</h3>
     <p>
-      [cite_start]The dynamic model was derived using the Principle of Virtual Work, incorporating a mass distribution factor (w) to simplify the inertial forces of the leg links[cite: 555, 577, 605].
+      The dynamic model was derived using the Principle of Virtual Work, incorporating a mass distribution factor (w) to simplify the inertial forces of the leg links
     </p>
 
     <h3>B. Simulation Execution</h3>
     <p>
-      [cite_start]Simulations were conducted for PD, PID, and CTC controllers[cite: 644, 687, 714]. 
-      [cite_start]The results were compared to the desired helix trajectory to assess accuracy[cite: 1081].
+      Simulations were conducted for PD, PID, and CTC controllers 
+      The results were compared to the desired helix trajectory to assess accuracy
     </p>
 
     <h3>C. Shortest Path Calculation</h3>
     <p>
-      [cite_start]Root Mean Square Error (RMSE) was used as the primary metric for accuracy[cite: 1131, 1133].
+      Root Mean Square Error (RMSE) was used as the primary metric for accuracy
     </p>
     <pre><code>e = sqrt( (1/n) * Σ(dd - d)² )</code></pre>
 
     <h3>D. Visualization</h3>
     <p>
-      [cite_start]The tracking results show that while all controllers follow the trajectory, CTC provides the highest accuracy[cite: 1164, 1167].
+      The tracking results show that while all controllers follow the trajectory, CTC provides the highest accuracy
     </p>
     <figure>
       <img src="assets/images/projects/arm_project/fig2.png" alt="PD Helix Trajectory" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 2. [cite_start]PD Controller Results for Helix Trajectory [cite: 876]</figcaption>
+      <figcaption>Fig. 2. PD Controller Results for Helix Trajectory </figcaption>
     </figure>
     <figure>
       <img src="assets/images/projects/arm_project/fig3.png" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 3. [cite_start]PID Controller Results for Helix Trajectory [cite: 939]</figcaption>
+      <figcaption>Fig. 3. PID Controller Results for Helix Trajectory </figcaption>
     </figure>
     <figure>
       <img src="assets/images/projects/arm_project/fig4.png" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 4. [cite_start]CTC Controller Results for Helix Trajectory [cite: 1002]</figcaption>
+      <figcaption>Fig. 4. CTC Controller Results for Helix Trajectory </figcaption>
     </figure>
 
     <h2>VI. Conclusion</h2>
     <p>
-      [cite_start]The project successfully determined the mathematical model of the Linear Delta Robot and compared PD, PID, and CTC control methods[cite: 1173, 1176]. 
-      [cite_start]The CTC controller demonstrated superior performance with the lowest RMSE across all axes[cite: 1164, 1165, 1166, 1167]. 
-      [cite_start]Future recommendations include using Lagrange methods for dynamics and implementing disturbance observers for experimental testing[cite: 1198, 1200].
+      The project successfully determined the mathematical model of the Linear Delta Robot and compared PD, PID, and CTC control methods
+      The CTC controller demonstrated superior performance with the lowest RMSE across all axes
+      Future recommendations include using Lagrange methods for dynamics and implementing disturbance observers for experimental testing
     </p>
 
     <h2>MATLAB Code</h2>
     <div class="github-link">
-      <a href="https://github.com/mohammedabdelrehim/LinearDeltaRobot" target="_blank">
+      <a href="https://github.com/mohammedabdelrehim/Delta_Robot" target="_blank">
         <i class="fab fa-github" style="font-size: 3rem;"></i>
       </a>
     </div>
