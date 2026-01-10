@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parallel Robot Manipulator for Drug Delivery</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for GitHub icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Report container using the default dark theme */
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .github-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .github-link a {
+      color: #1db954;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    .github-link a:hover {
+      color: #13a04a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar (uses default styling from style.css) -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Robotics</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Report Content -->
+  <div class="report-container">
+    <h1>Parallel Robot Manipulator for Drug Delivery</h1>
+    <p><em>A robotic manipulator to guide nano robots inside the human body</em></p>
+
+    <h2>Abstract</h2>
+    <p>
+      This project presents a comprehensive implementation of a parallel robot utilizing three link chains to control nano robots.
+      The robot's end effector holds an omni-magnet and move in sophisticated spiral trajectory, allowing smooth flow a drug carrying nano
+      robots inside the human body. The system leverages numerical inverse kinematics (IK), a predefined workspace and a Computed Torque Control
+      (CTC) strategy for precise end-effector positioning and trajectory following. Detailed explanations of the task space definition, 
+      trajectory planning, and control methodologies are provided, highlighting the complexity and intricacies involved in developing such a robotic system.
+    </p>
+    <p><strong>Index Terms:</strong> robotics, inverse kinematics, CTC control, trajectory planning, automation</p>
+
+<h2>I. Introduction</h2>
+    <p>
+      Robot manipulators evolved significantly after WWII, starting with the handling of radioactive materials and moving into widespread industrial use for assembly and welding. 
+      Unlike serial robots, which consist of a single chain from base to end-effector, parallel robots utilize several chain links. 
+      Parallel manipulators are preferred for operations requiring high speed, acceleration, and stiffness, as they feature a low mobile mass with motors placed at the base. 
+      However, they often face challenges such as a relatively smaller workspace and more complex dynamics compared to serial systems.
+    </p>
+
+    <h2>II. System Overview</h2>
+    <p>
+      The system is a 3-DOF translational parallel manipulator. 
+      It consists of a fixed base and a moving platform connected by three kinematic chains. 
+      Each arm features a prismatic joint that performs translational motion and parallelogram links that perform general plane motion. 
+      The core objective of the modeling is to derive an accurate mathematical representation for high-precision control.
+    </p>
+
+    <h3>A. System Flowchart</h3>
+    <figure>
+      <img src="assets/images/projects/parallel_robot/robot_1.jpg" alt="System Design" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 1. Robot design and architecture</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/parallel_robot/robot_2.jpg" alt="System Model" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. Simulink Model</figcaption>
+    </figure>
+
+    <h3>B. Inverse Kinematics Method</h3>
+    <p>
+      Inverse kinematics is used to determine the joint variables required to reach a specific end-effector position. 
+      Starting from the loop closure equation $P + bi = ai + diui + ci + Lli$ , we simplify the constants and rearrange for $di$. 
+      For the $i$-th kinematic chain, the position of the cart is expressed as:
+    </p>
+    <pre><code>di = λiz ± sqrt(li² − λix² − λiy²)</code></pre>
+    <p>
+      where $λi$ is the vector from the base to the platform minus constant geometric offsets.
+    </p>
+
+    <h3>C. Task Space Definition</h3>
+    <p>
+      The task space is governed by the physical dimensions of the Linear Delta Robot. 
+      Important workspace parameters include:
+    </p>
+    <ul>
+      <li><strong>Frame Height:</strong> 870 mm </li>
+      <li><strong>Base Side Length:</strong> 700 mm </li>
+      <li><strong>Prismatic Range:</strong> 70 mm to 580 mm </li>
+      <li><strong>Link Length:</strong> 365 mm </li>
+    </ul>
+
+    <h3>D. Plate Position Generation</h3>
+    <p>
+      To test the control laws, a helical trajectory was generated. 
+      The desired path follows a spiral motion defined by the following parameters:
+    </p>
+    <ol>
+      <li><strong>Radius (r):</strong> 0.01 m </li>
+      <li><strong>Velocity (v):</strong> 0.01 m/s </li>
+      <li><strong>Angular Velocity (ω):</strong> π/6 rad/s </li>
+    </ol>
+
+    <h2>III. Control and Motion Planning</h2>
+    <p>
+      The control system focuses on tracking the desired helical trajectory through joint space control using an ADAMS simulation loop.
+    </p>
+
+    <h3>A. Spiral Trajectory for Cleaning</h3>
+    <ol>
+      <li>
+        <strong>Parameters Definition:</strong>
+        <ul>
+          <li>Frequency (ω): π/6 </li>
+          <li>Helix Radius (r): 0.01 m </li>
+          <li>Total Time: 30 seconds </li>
+          <li>Initial Z (z0): 0.316 m </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Trajectory Equations:</strong>
+        <pre><code>
+x = r * sin(ωt)
+y = r * cos(ωt)
+z = z0 + v * t
+        </code></pre>
+      </li>
+    </ol>
+
+    <h3>B. Transition Trajectory</h3>
+    <p>
+      Motion planning for the robot is implemented through high-precision control schemes
+      The Computed Torque Control (CTC) law is particularly effective as it linearizes the closed-loop system by compensating for nonlinear dynamics 
+      The CTC control law is defined as:
+    </p>
+    <pre><code>f = M(d)[d_ddot + Kp.e + Kv.e_dot] + C(d, d_dot)d_dot + G(d)</code></pre>
+
+    <h2>IV. Trajectory Generation</h2>
+    <h3>A. Cleaning Trajectory</h3>
+    <p>
+      The cleaning trajectory is analyzed through velocity and acceleration analysis to ensure smooth tracking
+      The Jacobian matrix $Jdi$ is utilized to map the task-space velocity to the joint velocity
+    </p>
+
+    <h3>B. Transition Trajectory</h3>
+    <p>
+      Acceleration analysis provides the necessary input for dynamic compensation
+      The acceleration of the $i$-th joint is given by:
+    </p>
+    <pre><code>di_ddot = Jdi * P_ddot + P_dot_T * Hi * P_dot</code></pre>
+    <p>
+      where $Hi$ accounts for the centrifugal and Coriolis effects of the kinematic chain
+    </p>
+
+    <h2>V. Experimental Setup and Results</h2>
+    <h3>A. Initial Setup</h3>
+    <p>
+      The dynamic model was derived using the Principle of Virtual Work, incorporating a mass distribution factor (w) to simplify the inertial forces of the leg links
+    </p>
+
+    <h3>B. Simulation Execution</h3>
+    <p>
+      Simulations were conducted for PD, PID, and CTC controllers 
+      The results were compared to the desired helix trajectory to assess accuracy
+    </p>
+
+    <h3>C. Shortest Path Calculation</h3>
+    <p>
+      Root Mean Square Error (RMSE) was used as the primary metric for accuracy
+    </p>
+    <pre><code>e = sqrt( (1/n) * Σ(dd - d)² )</code></pre>
+
+    <h3>D. Visualization</h3>
+    <p>
+      The tracking results show that while all controllers follow the trajectory, CTC provides the highest accuracy
+    </p>
+    <figure>
+      <img src="assets/images/projects/parallel_robot/robot_3.jpg" alt="Hardware Implementation" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. Hardware Implementation of the Robot compared to body size </figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/parallel_robot/pid.jpg" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 3. PID Controller Results for Helix Trajectory </figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/parallel_robot/ctc.jpg" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 4. CTC Controller Results for Helix Trajectory </figcaption>
+    </figure>
+
+    <h2>VI. Conclusion</h2>
+    <p>
+      The project successfully determined the mathematical model of the Linear Delta Robot and compared PD, PID, and CTC control methods
+      The CTC controller demonstrated superior performance with the lowest RMSE across all axes
+      Future recommendations include using Lagrange methods for dynamics and implementing disturbance observers for experimental testing
+    </p>
+
+    <h2>MATLAB Code</h2>
+    <div class="github-link">
+      <a href="https://github.com/mohammedabdelrehim/Delta_Robot" target="_blank">
+        <i class="fab fa-github" style="font-size: 3rem;"></i>
+      </a>
+    </div>
+  </div>
