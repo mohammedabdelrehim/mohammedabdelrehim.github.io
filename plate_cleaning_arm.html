@@ -92,63 +92,67 @@
 
 <h2>I. Introduction</h2>
     <p>
-      [cite_start]Robot manipulators evolved significantly after WWII, starting with the handling of radioactive materials and moving into widespread industrial use for assembly and welding[cite: 52, 53]. 
-      [cite_start]Unlike serial robots, which consist of a single chain from base to end-effector, parallel robots utilize several chain links[cite: 81, 84]. 
-      [cite_start]Parallel manipulators are preferred for operations requiring high speed, acceleration, and stiffness, as they feature a low mobile mass with motors placed at the base[cite: 132, 137, 140, 146]. 
-      [cite_start]However, they often face challenges such as a relatively smaller workspace and more complex dynamics compared to serial systems[cite: 106, 107].
+      Robot manipulators evolved significantly after WWII, starting with the handling of radioactive materials and moving into widespread industrial use for assembly and welding. 
+      Unlike serial robots, which consist of a single chain from base to end-effector, parallel robots utilize several chain links. 
+      Parallel manipulators are preferred for operations requiring high speed, acceleration, and stiffness, as they feature a low mobile mass with motors placed at the base. 
+      However, they often face challenges such as a relatively smaller workspace and more complex dynamics compared to serial systems.
     </p>
 
     <h2>II. System Overview</h2>
     <p>
-      [cite_start]The system is a 3-DOF translational parallel manipulator[cite: 1]. 
-      [cite_start]It consists of a fixed base and a moving platform connected by three kinematic chains[cite: 253]. 
-      [cite_start]Each arm features a prismatic joint that performs translational motion and parallelogram links that perform general plane motion[cite: 312, 313]. 
-      [cite_start]The core objective of the modeling is to derive an accurate mathematical representation for high-precision control[cite: 173].
+      The system is a 3-DOF translational parallel manipulator. 
+      It consists of a fixed base and a moving platform connected by three kinematic chains. 
+      Each arm features a prismatic joint that performs translational motion and parallelogram links that perform general plane motion. 
+      The core objective of the modeling is to derive an accurate mathematical representation for high-precision control.
     </p>
 
     <h3>A. System Flowchart</h3>
     <figure>
-      <img src="assets/images/projects/arm_project/fig1.png" alt="System Flowchart" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 1. Control and Simulation Flowchart</figcaption>
+      <img src="assets/images/projects/parallel_robot/robot_1.jpg" alt="System Design" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 1. Robot design and architecture</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/parallel_robot/robot_2.jpg" alt="System Model" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. Simulink Model</figcaption>
     </figure>
 
     <h3>B. Inverse Kinematics Method</h3>
     <p>
-      [cite_start]Inverse kinematics is used to determine the joint variables required to reach a specific end-effector position[cite: 382]. 
-      [cite_start]Starting from the loop closure equation $P + bi = ai + diui + ci + Lli$ [cite: 335][cite_start], we simplify the constants and rearrange for $di$[cite: 384, 386]. 
+      Inverse kinematics is used to determine the joint variables required to reach a specific end-effector position. 
+      Starting from the loop closure equation $P + bi = ai + diui + ci + Lli$ , we simplify the constants and rearrange for $di$. 
       For the $i$-th kinematic chain, the position of the cart is expressed as:
     </p>
     <pre><code>di = λiz ± sqrt(li² − λix² − λiy²)</code></pre>
     <p>
-      [cite_start]where $λi$ is the vector from the base to the platform minus constant geometric offsets[cite: 389, 415].
+      where $λi$ is the vector from the base to the platform minus constant geometric offsets.
     </p>
 
     <h3>C. Task Space Definition</h3>
     <p>
-      [cite_start]The task space is governed by the physical dimensions of the Linear Delta Robot[cite: 336]. 
+      The task space is governed by the physical dimensions of the Linear Delta Robot. 
       Important workspace parameters include:
     </p>
     <ul>
-      [cite_start]<li><strong>Frame Height:</strong> 870 mm [cite: 357]</li>
-      [cite_start]<li><strong>Base Side Length:</strong> 700 mm [cite: 357]</li>
-      [cite_start]<li><strong>Prismatic Range:</strong> 70 mm to 580 mm [cite: 357]</li>
-      [cite_start]<li><strong>Link Length:</strong> 365 mm [cite: 357]</li>
+      <li><strong>Frame Height:</strong> 870 mm </li>
+      <li><strong>Base Side Length:</strong> 700 mm </li>
+      <li><strong>Prismatic Range:</strong> 70 mm to 580 mm </li>
+      <li><strong>Link Length:</strong> 365 mm </li>
     </ul>
 
     <h3>D. Plate Position Generation</h3>
     <p>
-      [cite_start]To test the control laws, a helical trajectory was generated[cite: 876]. 
+      To test the control laws, a helical trajectory was generated. 
       The desired path follows a spiral motion defined by the following parameters:
     </p>
     <ol>
-      [cite_start]<li><strong>Radius (r):</strong> 0.01 m [cite: 782]</li>
-      [cite_start]<li><strong>Velocity (v):</strong> 0.01 m/s [cite: 788]</li>
-      [cite_start]<li><strong>Angular Velocity (ω):</strong> π/6 rad/s [cite: 784]</li>
+      <li><strong>Radius (r):</strong> 0.01 m </li>
+      <li><strong>Velocity (v):</strong> 0.01 m/s </li>
+      <li><strong>Angular Velocity (ω):</strong> π/6 rad/s </li>
     </ol>
 
     <h2>III. Control and Motion Planning</h2>
     <p>
-      [cite_start]The control system focuses on tracking the desired helical trajectory through joint space control using an ADAMS simulation loop[cite: 835, 855].
+      The control system focuses on tracking the desired helical trajectory through joint space control using an ADAMS simulation loop.
     </p>
 
     <h3>A. Spiral Trajectory for Cleaning</h3>
@@ -156,10 +160,10 @@
       <li>
         <strong>Parameters Definition:</strong>
         <ul>
-          [cite_start]<li>Frequency (ω): π/6 [cite: 784]</li>
-          [cite_start]<li>Helix Radius (r): 0.01 m [cite: 782]</li>
-          [cite_start]<li>Total Time: 30 seconds [cite: 790]</li>
-          [cite_start]<li>Initial Z (z0): 0.316 m [cite: 786]</li>
+          <li>Frequency (ω): π/6 </li>
+          <li>Helix Radius (r): 0.01 m </li>
+          <li>Total Time: 30 seconds </li>
+          <li>Initial Z (z0): 0.316 m </li>
         </ul>
       </li>
       <li>
@@ -220,15 +224,15 @@ z = z0 + v * t
       The tracking results show that while all controllers follow the trajectory, CTC provides the highest accuracy
     </p>
     <figure>
-      <img src="assets/images/projects/arm_project/fig2.png" alt="PD Helix Trajectory" style="max-width: 400px; width: 100%;">
-      <figcaption>Fig. 2. PD Controller Results for Helix Trajectory </figcaption>
+      <img src="assets/images/projects/parallel_robot/robot_3.jpg" alt="Hardware Implementation" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. Hardware Implementation of the Robot compared to body size </figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/arm_project/fig3.png" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_robot/pid.jpg" alt="PID Helix Trajectory" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 3. PID Controller Results for Helix Trajectory </figcaption>
     </figure>
     <figure>
-      <img src="assets/images/projects/arm_project/fig4.png" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
+      <img src="assets/images/projects/parallel_robot/ctc.jpg" alt="CTC Helix Trajectory" style="max-width: 400px; width: 100%;">
       <figcaption>Fig. 4. CTC Controller Results for Helix Trajectory </figcaption>
     </figure>
 
