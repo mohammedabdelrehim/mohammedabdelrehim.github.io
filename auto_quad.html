@@ -70,10 +70,10 @@
   </nav>
   <div class="report-container">
     <h1>Autonomous Quadcopter Navigation and Control</h1>
-    <p><em>Robust Indoor Navigation and Obstacle Avoidance for Aerial Platforms</em></p>
+    <p><em>Robust Indoor Navigation and Object Detection using Stereo Camera and LiDAR</em></p>
     <h2>Abstract</h2>
     <p>
-      This project involves the development of an autonomous navigation system for a quadcopter in simulated environments. The system integrates sensor fusion for localization, PID-based flight control, and dynamic path planning to enable the drone to traverse complex indoor environments. Leveraging the ROS 2 ecosystem and Gazebo simulation, the quadcopter performs autonomous take-off, waypoint navigation, and collision-free movement.
+      This project involves the development of an autonomous navigation system for a quadcopter in simulated environments. The system integrates sensor fusion for localization, PID-based flight control, and dynamic path planning to enable the drone to traverse complex indoor environments. Leveraging the ROS 2 ecosystem and Gazebo simulation, the quadcopter performs autonomous navigation and collision-free movement.
     </p>
     <h2>1. Introduction</h2>
     <p>
@@ -83,8 +83,9 @@
     <ul>
       <li><strong>ROS 2 Humble:</strong> The software framework for managing asynchronous sensor data and control commands.</li>
       <li><strong>Gazebo Simulator:</strong> Used for physics-accurate flight simulation and sensor modeling (Lidar, IMU).</li>
-      <li><strong>PX4 / ArduPilot:</strong> Integration with flight control firmware for low-level motor stabilization and MAVLink communication.</li>
-      <li><strong>Sensor Suite:</strong> Utilization of 2D/3D Lidar for obstacle detection and IMU/Odometry for pose estimation.</li>
+      <li><strong>ArduPilot:</strong> Integration with flight control firmware for low-level motor stabilization and MAVLink communication.</li>
+      <li><strong>Sensor Suite:</strong> Utilization of 2D Lidar and stereo camera for obstacle detection and IMU/Odometry for pose estimation.</li>
+      
     </ul>
     <figure>
       <img src="assets/images/projects/auto_quad/quad.jpg" alt="Quadcopter Design" style="max-width: 700px; width: 100%;">
@@ -97,31 +98,35 @@
       <li>Configuration of the quadcopter URDF/SDF models with optimized weight-to-thrust ratios.</li>
       <li>Calibration of the simulated EKF (Extended Kalman Filter) for robust state estimation.</li>
     </ul>
-    <h3>3.2 Flight Control and Waypoint Navigation</h3>
+    <h3>3.2 Stereo Camera Calibration</h3>
     <ul>
-      <li>Implementation of a mission manager that translates high-level coordinates into MAVLink setpoints.</li>
-      <li>Autonomous take-off and landing sequences with altitude hold stabilization.</li>
-      <li>Sequential waypoint execution allowing the quadcopter to follow complex 3D paths.</li>
+      <li>The stereo camera was manually calibrated using ROS2 nodes</li>
+      <li>A ROS2 node was developed and used in the pipeline for the image processing</li>
     </ul>
     <figure>
-      <img src="assets/images/projects/auto_quad/quad.jpg" alt="Mission Control Dashboard" style="max-width: 700px; width: 100%;">
+      <img src="assets/images/projects/auto_quad/feature_matching.gif" alt="Feature Matching using stereo camera" style="max-width: 700px; width: 100%;">
       <figcaption>Fig. 2. Control interface for monitoring flight telemetry and mission status</figcaption>
     </figure>
-    <h3>3.3 Obstacle Avoidance and Path Planning</h3>
+    <h3>3.3 Disparity Maps</h3>
     <ul>
-      <li>Processing of Lidar point clouds to generate a local costmap for the aerial vehicle.</li>
-      <li>Implementation of reactive obstacle avoidance algorithms to deviate from the global path when an obstruction is detected.</li>
-      <li>Dynamic trajectory smoothing to ensure stable flight during rapid maneuvers.</li>
+      <li>The feature matching will be used for disparity maps</li>
+      <li>Depth maps will be computed from the disparity</li>
+      <li>The calibrated stereo camera was utilized</li>
     </ul>
     <figure>
-      <img src="assets/images/projects/auto_quad/quad.jpg" alt="Autonomous flight in narrow environment" style="max-width: 700px; width: 100%;">
-      <figcaption>Fig. 3. Implementation of collision-free navigation in a cluttered indoor setting</figcaption>
+      <img src="assets/images/projects/auto_quad/feature_matching.gif" alt="Feature Matching using stereo camera" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 3. Feature Matching using a stereo camera</figcaption>
     </figure>
-    <h3>3.4 Telemetry and Data Visualization</h3>
+    <h3>3.4 Cartographer SLAM</h3>
     <ul>
-      <li>Real-time monitoring of velocity vectors, battery status, and sensor health via RViz.</li>
-      <li>Recording of flight data (rosbags) for post-mission analysis of control error and path deviation.</li>
+      <li>The LiDAR was used to generate Point Clouds for the SLAM algorith</li>
+      <li>Real-time SLAM was utilized and the mapping was viewed via RViz.</li>
+      <li>The disparity map shown requires further tuning of the parameters for clearer map</li>
     </ul>
+    <figure>
+      <img src="assets/images/projects/auto_quad/disparity_map.gif" alt="SLAM Mapping and Dispiraity" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 4. Cartographer SLAM and Disparity Map</figcaption>
+    </figure>
 
     <h2>4. Results</h2>
     <p>
