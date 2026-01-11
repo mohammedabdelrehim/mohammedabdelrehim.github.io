@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autonomous Quadcopter Navigation and Control</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .highlight {
+      background: #222;
+      border-left: 4px solid #1db954;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: #1db954;
+      font-size: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Mohammed Ashraf</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="report-container">
+    <h1>Autonomous Quadcopter Navigation and Control</h1>
+    <p><em>Robust Indoor Navigation and Obstacle Avoidance for Aerial Platforms</em></p>
+    <h2>Abstract</h2>
+    <p>
+      This project involves the development of an autonomous navigation system for a quadcopter in simulated environments. The system integrates sensor fusion for localization, PID-based flight control, and dynamic path planning to enable the drone to traverse complex indoor environments. Leveraging the ROS 2 ecosystem and Gazebo simulation, the quadcopter performs autonomous take-off, waypoint navigation, and collision-free movement.
+    </p>
+    <h2>1. Introduction</h2>
+    <p>
+      Autonomous aerial navigation is a critical component for applications ranging from indoor inspection to search and rescue. Unlike ground-based platforms, quadcopters must manage stability across six degrees of freedom while perceiving obstacles in 3D space. This project focuses on implementing an autonomous flight stack that coordinates flight dynamics with high-level mission planning using ROS 2.
+    </p>
+    <h2>2. System Overview</h2>
+    <ul>
+      <li><strong>ROS 2 Humble:</strong> The software framework for managing asynchronous sensor data and control commands.</li>
+      <li><strong>Gazebo Simulator:</strong> Used for physics-accurate flight simulation and sensor modeling (Lidar, IMU).</li>
+      <li><strong>PX4 / ArduPilot:</strong> Integration with flight control firmware for low-level motor stabilization and MAVLink communication.</li>
+      <li><strong>Sensor Suite:</strong> Utilization of 2D/3D Lidar for obstacle detection and IMU/Odometry for pose estimation.</li>
+    </ul>
+    <figure>
+      <img src="assets/images/projects/auto_quad/quad.jpg" alt="Quadcopter Design" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 1. Quadcopter platform used for simulation and testing</figcaption>
+    </figure>
+    <h2>3. Methodology</h2>
+    <h3>3.1 Environment and Flight Setup</h3>
+    <ul>
+      <li>Design of a custom indoor environment in Gazebo featuring narrow corridors and dynamic obstacles.</li>
+      <li>Configuration of the quadcopter URDF/SDF models with optimized weight-to-thrust ratios.</li>
+      <li>Calibration of the simulated EKF (Extended Kalman Filter) for robust state estimation.</li>
+    </ul>
+    <h3>3.2 Flight Control and Waypoint Navigation</h3>
+    <ul>
+      <li>Implementation of a mission manager that translates high-level coordinates into MAVLink setpoints.</li>
+      <li>Autonomous take-off and landing sequences with altitude hold stabilization.</li>
+      <li>Sequential waypoint execution allowing the quadcopter to follow complex 3D paths.</li>
+    </ul>
+    <figure>
+      <img src="assets/images/projects/auto_quad/quad.jpg" alt="Mission Control Dashboard" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 2. Control interface for monitoring flight telemetry and mission status</figcaption>
+    </figure>
+    <h3>3.3 Obstacle Avoidance and Path Planning</h3>
+    <ul>
+      <li>Processing of Lidar point clouds to generate a local costmap for the aerial vehicle.</li>
+      <li>Implementation of reactive obstacle avoidance algorithms to deviate from the global path when an obstruction is detected.</li>
+      <li>Dynamic trajectory smoothing to ensure stable flight during rapid maneuvers.</li>
+    </ul>
+    <figure>
+      <img src="assets/images/projects/auto_quad/quad.jpg" alt="Autonomous flight in narrow environment" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 3. Implementation of collision-free navigation in a cluttered indoor setting</figcaption>
+    </figure>
+    <h3>3.4 Telemetry and Data Visualization</h3>
+    <ul>
+      <li>Real-time monitoring of velocity vectors, battery status, and sensor health via RViz.</li>
+      <li>Recording of flight data (rosbags) for post-mission analysis of control error and path deviation.</li>
+    </ul>
 
+    <h2>4. Results</h2>
+    <p>
+      The autonomous stack successfully demonstrated stable flight and reliable waypoint tracking. The quadcopter navigated the simulated environment with minimal lateral drift, successfully identifying and avoiding obstacles in its flight path. The integration of ROS 2 and MAVLink provided a low-latency pipeline for real-time aerial control.
+    </p>
+        <div class="video-container" style="text-align: center; margin-top: 2rem;">
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/DyssXuOaH5k?si=H4bJVBvwwuscdOsh" title="Quadcopter Navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <figcaption> Autonomous Quadcopter Mission Working </figcaption>
+    </div>
+    <h2>5. Conclusion</h2>
+    <p>
+      This project highlights the efficiency of using ROS 2 for high-level autonomous aerial navigation. By separating low-level flight control from high-level perception, a scalable architecture was achieved. Future work will focus on integrating Visual SLAM for GPS-denied environments and implementing multi-agent coordination for swarm-based aerial missions.
+    </p>
+    <div style="text-align:center; margin:2.5rem 0 0 0;">
+      <a href="https://github.com/mohammedabdelrehim/auto_quad" target="_blank" style="display:inline-block; padding:0.75rem 2rem; background:#1db954; color:#fff; border-radius:6px; font-size:1.2rem; font-weight:600; text-decoration:none; transition:background 0.2s;">📄 View on GitHub</a>
+    </div>
+  </div>
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2026 Mohammed Ashraf. All rights reserved.</p>
+  </footer>
+</body>
+</html>
